@@ -1,0 +1,35 @@
+@import "../node_modules/nprogress/nprogress.css";
+
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+body {
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+}
+
+.header {
+  padding: 2rem 0 3rem;
+  font-weight: 700;
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-size: 3rem;
+}
+
+.header__logo {
+  height: 4rem;
+  padding-right: 1rem;
+  fill: currentColor;
+}
+
+.footer {
+  padding: 3rem 0 2rem;
+  font-size: 0.8rem;
+  color: #666;
+}

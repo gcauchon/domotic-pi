@@ -21,23 +21,29 @@ defmodule DomoticUiWeb do
     quote do
       use Phoenix.Controller, namespace: DomoticUiWeb
 
+      import Phoenix.LiveView.Controller
       import Plug.Conn
+
       import DomoticUiWeb.Gettext
+
       alias DomoticUiWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
-      use Phoenix.View,
-        root: "lib/domotic_ui_web/templates",
-        namespace: DomoticUiWeb
+      use Phoenix.View, root: "lib/domotic_ui_web/templates", namespace: DomoticUiWeb
+      use Phoenix.HTML
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
+      import Phoenix.LiveView.Helpers
 
       # Include shared imports and aliases for views
-      unquote(view_helpers())
+      import DomoticUiWeb.ErrorHelpers
+      import DomoticUiWeb.Gettext
+
+      alias DomoticUiWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -47,6 +53,7 @@ defmodule DomoticUiWeb do
 
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
@@ -54,17 +61,6 @@ defmodule DomoticUiWeb do
     quote do
       use Phoenix.Channel
       import DomoticUiWeb.Gettext
-    end
-  end
-
-  defp view_helpers do
-    quote do
-      # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
-
-      import DomoticUiWeb.ErrorHelpers
-      import DomoticUiWeb.Gettext
-      alias DomoticUiWeb.Router.Helpers, as: Routes
     end
   end
 

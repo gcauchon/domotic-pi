@@ -4,30 +4,43 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>DomoticUi · Phoenix Framework</title>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+    <title>Domotic · Temperature</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap">
+
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/> 
+
+    <%= csrf_meta_tag() %>
   </head>
   <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
+    <header class="header">
+      <div class="container ">
+        <h1 class="header__title">
+          <svg class="header__logo" viewBox="0 0 13 25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path d="M10,3 C10,2.44775 10.4478,2 11,2 L12,2 C12.5522,2 13,2.44775 13,3 C13,3.55225 12.5522,4 12,4 L11,4 C10.4478,4 10,3.55225 10,3 Z"></path>
+            <path d="M11,6 C10.4478,6 10,6.44775 10,7 C10,7.55225 10.4478,8 11,8 L12,8 C12.5522,8 13,7.55225 13,7 C13,6.44775 12.5522,6 12,6 L11,6 Z"></path>
+            <path d="M10,10 C10,9.4478 10.4478,9 11,9 L12,9 C12.5522,9 13,9.4478 13,10 C13,10.5522 12.5522,11 12,11 L11,11 C10.4478,11 10,10.5522 10,10 Z"></path>
+            <path d="M6,21 C7.10449,21 8,20.1046 8,19 C8,17.8954 7.10449,17 6,17 C4.89551,17 4,17.8954 4,19 C4,20.1046 4.89551,21 6,21 Z"></path>
+            <path d="M7,0 C8.10449,0 9,0.895386 9,2 L9,12.6492 C9,13.363 9.39844,14.0037 9.93701,14.4724 C11.2012,15.5724 12,17.1929 12,19 C12,22.3137 9.31348,25 6,25 C2.68652,25 0,22.3137 0,19 C0,17.1929 0.798828,15.5724 2.06299,14.4724 C2.60156,14.0037 3,13.363 3,12.6492 L3,2 C3,0.895386 3.89551,0 5,0 L7,0 Z M7,2 L5,2 L5,12.6492 C5,14.1296 4.18555,15.2764 3.37598,15.9811 C2.52979,16.7174 2,17.7957 2,19 C2,21.2091 3.79102,23 6,23 C8.20898,23 10,21.2091 10,19 C10,17.7957 9.47021,16.7174 8.62402,15.9811 C7.81445,15.2764 7,14.1296 7,12.6492 L7,2 Z"></path>
+          </svg>
+
+          Freezer watch
+        </h1>
       </section>
     </header>
+
     <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= @inner_content %>
     </main>
+
+    <footer class="footer">
+      <div class="container">
+        Termometer icon by <em>Marko Fuček</em> from the <a href="https://thenounproject.com/search/?q=termometer&i=1851122">Noun Project</a>
+      </div>
+    </footer>
+
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
