@@ -7,14 +7,10 @@ defmodule DomoticUi.Application do
 
   def start(_type, _args) do
     children = [
-      # Start the Telemetry supervisor
       DomoticUiWeb.Telemetry,
-      # Start the PubSub system
       {Phoenix.PubSub, name: DomoticUi.PubSub},
-      # Start the Endpoint (http/https)
-      DomoticUiWeb.Endpoint
-      # Start a worker by calling: DomoticUi.Worker.start_link(arg)
-      # {DomoticUi.Worker, arg}
+      DomoticUiWeb.Endpoint,
+      DomoticUi.Watcher
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

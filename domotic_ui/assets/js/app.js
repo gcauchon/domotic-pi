@@ -13,7 +13,7 @@ let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToke
 liveSocket.connect()
 
 // expose liveSocket on window for web console debug logs and latency simulation:
-liveSocket.enableDebug()
+// >> liveSocket.enableDebug()
 // >> liveSocket.enableLatencySim(1000)
 window.liveSocket = liveSocket
 

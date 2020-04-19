@@ -8,6 +8,8 @@ config :domotic_ui, DomoticUiWeb.Endpoint,
   pubsub_server: DomoticUi.PubSub,
   live_view: [signing_salt: "LezYvAG6"]
 
+config :domotic_ui, DomoticUi.Probe, DomoticUi.Probe.Mock
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
