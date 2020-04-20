@@ -3,13 +3,16 @@ defmodule DomoticWeb.Live.Dashboard do
 
   alias Domotic.Temperature
 
+  @impl true
   def mount(_params, _session, socket) do
     {status, temperature, threshold} = Temperature.get()
-    schedule_update()
+
+    Temperature.subscribe()
 
     {:ok, assign(socket, status: status, temperature: temperature, threshold: threshold)}
   end
 
+  @impl true
   def render(assigns) do
     ~L"""
     <button type="button" class="btn btn-<%= if @status == :ok, do: 'success', else: 'danger' %>">
@@ -20,12 +23,8 @@ defmodule DomoticWeb.Live.Dashboard do
     """
   end
 
-  def handle_info(:update, socket) do
-    {status, temperature, threshold} = Temperature.get()
-    schedule_update()
-
+  @impl true
+  def handle_info({status, temperature, threshold}, socket) do
     {:noreply, assign(socket, status: status, temperature: temperature, threshold: threshold)}
   end
-
-  defp schedule_update(), do: Process.send_after(self(), :update, 5000)
 end

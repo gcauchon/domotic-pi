@@ -7,6 +7,7 @@ defmodule Domotic.Application do
     children = [
       DomoticWeb.Telemetry,
       {Phoenix.PubSub, name: Domotic.PubSub},
+      Domotic.Temperature,
       DomoticWeb.Endpoint
     ]
 

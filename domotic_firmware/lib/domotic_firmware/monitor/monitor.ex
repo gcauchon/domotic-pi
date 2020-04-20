@@ -1,52 +1,42 @@
 defmodule DomoticFirmware.Monitor do
   use GenServer
 
-  require Logger
-
-  alias Domotic.Temperature 
+  alias Domotic.Temperature
 
   @gpio_ok 21
   @gpio_warning 23
 
-  def start_link(_default) do
-    GenServer.start_link(__MODULE__, nil, name: __MODULE__)
+  def start_link(_args) do
+    GenServer.start_link(__MODULE__, %{}, name: :monitor)
   end
 
   @impl true
-  def init(_) do
-    Logger.debug("Starting LEDs monitor…")
-
+  def init(_state) do
     {:ok, gpio_ok} = Circuits.GPIO.open(@gpio_ok, :output)
     {:ok, gpio_warning} = Circuits.GPIO.open(@gpio_warning, :output)
+    
     pins = %{ok: gpio_ok, warning: gpio_warning}
+    update(pins, Temperature.get())
 
-    update(pins)
+    Temperature.subscribe()
 
     {:ok, pins}
   end
 
   @impl true
-  def handle_info(:update, pins) do
-    update(pins) 
+  def handle_info(temperature, pins) when is_tuple(temperature) do
+    update(pins, temperature) 
 
     {:noreply, pins}
   end
 
-  defp update(%{ok: gpio_ok, warning: gpio_warning}) do
-    Logger.debug("Updating LEDs…")
+  defp update(%{ok: gpio_ok, warning: gpio_warning}, {:ok, _temperature, _threshold}) do
+    Circuits.GPIO.write(gpio_ok, 1)
+    Circuits.GPIO.write(gpio_warning, 0)
+  end
 
-    Temperature.get()
-    |> IO.inspect(label: "Temperature")
-    |> case do
-      {:ok, _temperature, _threshold} ->
-        Circuits.GPIO.write(gpio_ok, 1)
-        Circuits.GPIO.write(gpio_warning, 0)
-
-      _ ->
-        Circuits.GPIO.write(gpio_ok, 0)
-        Circuits.GPIO.write(gpio_warning, 1)
-    end
-    
-    Process.send_after(self(), :update, 5000)
+  defp update(%{ok: gpio_ok, warning: gpio_warning}, {_status, _temperature, _threshold}) do
+    Circuits.GPIO.write(gpio_ok, 0)
+    Circuits.GPIO.write(gpio_warning, 1)
   end
 end
