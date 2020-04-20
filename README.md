@@ -1,10 +1,19 @@
-# DomoticFirmware
+# DomoticPi
 
-**TODO: Add description**
+My first IoT playground based on Raspberry Pi and the amazing [Nerves](
+https://www.nerves-project.org/) platform!
 
-## Targets
+## 🌡 Freezer watch
 
-Nerves applications produce images for hardware targets based on the
+A <em>Pi Zero Wireless</em> device using a [DS18D20 temperature sensor](
+https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf), watching the temperature
+of the freezer never to lose precious venison meat.
+
+# Nerves
+
+### Targets
+
+Nerves applications produce images for hardware targets based on the 
 `MIX_TARGET` environment variable. If `MIX_TARGET` is unset, `mix` builds an
 image that runs on the host (e.g., your laptop). This is useful for executing
 logic tests, running utilities, and debugging. Other targets are represented by
@@ -14,7 +23,7 @@ information about targets see:
 
 https://hexdocs.pm/nerves/targets.html#content
 
-## Getting Started
+### Getting Started
 
 To start your Nerves app:
   * `export MIX_TARGET=my_target` or prefix every command with
@@ -23,7 +32,7 @@ To start your Nerves app:
   * Create firmware with `mix firmware`
   * Burn to an SD card with `mix firmware.burn`
 
-## Learn more
+### Learn more
 
   * Official docs: https://hexdocs.pm/nerves/getting-started.html
   * Official website: https://nerves-project.org/
