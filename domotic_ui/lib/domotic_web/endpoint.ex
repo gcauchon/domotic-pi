@@ -1,12 +1,12 @@
-defmodule DomoticUiWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :domotic_ui
+defmodule DomoticWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :domotic
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_domotic_ui_key",
+    key: "_domotic_key",
     signing_salt: "/POUtP6Q"
   ]
 
@@ -15,7 +15,7 @@ defmodule DomoticUiWeb.Endpoint do
   # Serve at "/" the static files from "priv/static" directory.
   plug Plug.Static,
     at: "/",
-    from: :domotic_ui,
+    from: :domotic,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -42,5 +42,5 @@ defmodule DomoticUiWeb.Endpoint do
   plug Plug.Head
   plug Plug.Session, @session_options
 
-  plug DomoticUiWeb.Router
+  plug DomoticWeb.Router
 end

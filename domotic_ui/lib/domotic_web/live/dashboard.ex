@@ -1,11 +1,11 @@
-defmodule DomoticUiWeb.Live.Dashboard do
+defmodule DomoticWeb.Live.Dashboard do
   use Phoenix.LiveView
 
   @temperature_threshold -15.0
  
   def mount(_params, _session, socket) do
-    Phoenix.PubSub.subscribe(DomoticUi.PubSub, "watcher")
-    %{temperature: temperature} = DomoticUi.Watcher.get_temperature()
+    Phoenix.PubSub.subscribe(Domotic.PubSub, "watcher")
+    %{temperature: temperature} = Domotic.Watcher.get_temperature()
 
     {:ok, assign(socket, :temperature, temperature)}
   end

@@ -1,4 +1,4 @@
-# DomoticUi
+# Domotic
 
 To start your Phoenix server:
 

@@ -43,7 +43,7 @@ defmodule DomoticFirmware.MixProject do
       {:toolshed, "~> 0.2"},
 
       # Phoenix web UI
-      {:domotic_ui, path: "../domotic_ui"},
+      {:domotic, path: "../domotic_ui"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.6", targets: @all_targets},

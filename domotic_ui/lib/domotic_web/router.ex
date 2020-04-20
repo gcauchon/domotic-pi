@@ -1,5 +1,5 @@
-defmodule DomoticUiWeb.Router do
-  use DomoticUiWeb, :router
+defmodule DomoticWeb.Router do
+  use DomoticWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -10,10 +10,10 @@ defmodule DomoticUiWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
 
-    plug :put_root_layout, {DomoticUiWeb.LayoutView, :app}
+    plug :put_root_layout, {DomoticWeb.LayoutView, :app}
   end
 
-  scope "/", DomoticUiWeb do
+  scope "/", DomoticWeb do
     pipe_through :browser
 
     live "/", Live.Dashboard
@@ -32,7 +32,7 @@ defmodule DomoticUiWeb.Router do
     scope "/" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: DomoticUiWeb.Telemetry
+      live_dashboard "/dashboard", metrics: DomoticWeb.Telemetry
     end
   end
 end

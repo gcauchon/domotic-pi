@@ -1,4 +1,4 @@
-defmodule DomoticUiWeb.Telemetry do
+defmodule DomoticWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -40,7 +40,7 @@ defmodule DomoticUiWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {DomoticUiWeb, :count_users, []}
+      # {DomoticWeb, :count_users, []}
     ]
   end
 end

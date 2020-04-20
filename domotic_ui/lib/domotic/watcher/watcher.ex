@@ -1,12 +1,12 @@
-defmodule DomoticUi.Watcher do
+defmodule Domotic.Watcher do
   use GenServer
 
   def start_link(_default) do
-    GenServer.start_link(__MODULE__, %{timestamp: :never, temperature: nil}, name: DomoticUi.Watcher)
+    GenServer.start_link(__MODULE__, %{timestamp: :never, temperature: nil}, name: Domotic.Watcher)
   end
 
   def get_temperature() do
-    GenServer.call(DomoticUi.Watcher, :read)
+    GenServer.call(Domotic.Watcher, :read)
   end
 
   @impl true
@@ -21,7 +21,7 @@ defmodule DomoticUi.Watcher do
     {:ok, temperature} = get_probe().read()
     state = %{temperature: temperature, timestamp: DateTime.utc_now()}
 
-    Phoenix.PubSub.broadcast(DomoticUi.PubSub, "watcher", state)
+    Phoenix.PubSub.broadcast(Domotic.PubSub, "watcher", state)
 
     schedule_work()
 
@@ -37,5 +37,5 @@ defmodule DomoticUi.Watcher do
     Process.send_after(self(), :check, 5 * 1000) # every 5 seconds
   end
 
-  defp get_probe, do: Application.get_env(:domotic_ui, DomoticUi.Probe)
+  defp get_probe, do: Application.get_env(:domotic, Domotic.Probe)
 end

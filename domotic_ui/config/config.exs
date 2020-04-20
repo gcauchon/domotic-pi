@@ -1,14 +1,14 @@
 use Mix.Config
 
 # Configures the endpoint
-config :domotic_ui, DomoticUiWeb.Endpoint,
+config :domotic, DomoticWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "8e5Pn7Ttbdip+GuV1Y8xVxCbFDBObBrabX33PwStgTSnzvciNqYXrN3oZCGxIwFP",
-  render_errors: [view: DomoticUiWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: DomoticUi.PubSub,
+  render_errors: [view: DomoticWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Domotic.PubSub,
   live_view: [signing_salt: "LezYvAG6"]
 
-config :domotic_ui, DomoticUi.Probe, DomoticUi.Probe.Mock
+config :domotic, Domotic.Probe, Domotic.Probe.Mock
 
 # Configures Elixir's Logger
 config :logger, :console,

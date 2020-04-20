@@ -1,12 +1,12 @@
-defmodule DomoticUiWeb do
+defmodule DomoticWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use DomoticUiWeb, :controller
-      use DomoticUiWeb, :view
+      use DomoticWeb, :controller
+      use DomoticWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,20 +19,20 @@ defmodule DomoticUiWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: DomoticUiWeb
+      use Phoenix.Controller, namespace: DomoticWeb
 
       import Phoenix.LiveView.Controller
       import Plug.Conn
 
-      import DomoticUiWeb.Gettext
+      import DomoticWeb.Gettext
 
-      alias DomoticUiWeb.Router.Helpers, as: Routes
+      alias DomoticWeb.Router.Helpers, as: Routes
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/domotic_ui_web/templates", namespace: DomoticUiWeb
+      use Phoenix.View, root: "lib/domotic_web/templates", namespace: DomoticWeb
       use Phoenix.HTML
 
       # Import convenience functions from controllers
@@ -40,10 +40,10 @@ defmodule DomoticUiWeb do
       import Phoenix.LiveView.Helpers
 
       # Include shared imports and aliases for views
-      import DomoticUiWeb.ErrorHelpers
-      import DomoticUiWeb.Gettext
+      import DomoticWeb.ErrorHelpers
+      import DomoticWeb.Gettext
 
-      alias DomoticUiWeb.Router.Helpers, as: Routes
+      alias DomoticWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -60,7 +60,7 @@ defmodule DomoticUiWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import DomoticUiWeb.Gettext
+      import DomoticWeb.Gettext
     end
   end
 

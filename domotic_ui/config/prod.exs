@@ -3,7 +3,7 @@ use Mix.Config
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
-config :domotic_ui, DomoticUiWeb.Endpoint,
+config :domotic, DomoticWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 

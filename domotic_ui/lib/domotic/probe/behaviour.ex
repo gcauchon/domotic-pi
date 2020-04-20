@@ -1,3 +1,3 @@
-defmodule DomoticUi.Probe.Behaviour do
+defmodule Domotic.Probe.Behaviour do
   @callback read() :: {:ok, number()} | {:error, String.t}
 end

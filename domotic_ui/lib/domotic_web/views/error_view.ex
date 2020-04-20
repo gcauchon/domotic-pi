@@ -1,5 +1,5 @@
-defmodule DomoticUiWeb.ErrorView do
-  use DomoticUiWeb, :view
+defmodule DomoticWeb.ErrorView do
+  use DomoticWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

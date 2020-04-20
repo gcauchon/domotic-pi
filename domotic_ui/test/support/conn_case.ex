@@ -1,4 +1,4 @@
-defmodule DomoticUiWeb.ConnCase do
+defmodule DomoticWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule DomoticUiWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use DomoticUiWeb.ConnCase, async: true`, although
+  by setting `use DomoticWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -22,12 +22,12 @@ defmodule DomoticUiWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import DomoticUiWeb.ConnCase
+      import DomoticWeb.ConnCase
 
-      alias DomoticUiWeb.Router.Helpers, as: Routes
+      alias DomoticWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint DomoticUiWeb.Endpoint
+      @endpoint DomoticWeb.Endpoint
     end
   end
 

@@ -1,9 +1,9 @@
-defmodule DomoticUi.MixProject do
+defmodule Domotic.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :domotic_ui,
+      app: :domotic,
       version: "0.1.0",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -17,7 +17,7 @@ defmodule DomoticUi.MixProject do
   # OTP application
   def application do
     [
-      mod: {DomoticUi.Application, []},
+      mod: {Domotic.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
