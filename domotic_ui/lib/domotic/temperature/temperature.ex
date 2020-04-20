@@ -25,5 +25,5 @@ defmodule Domotic.Temperature do
     Phoenix.PubSub.broadcast(Demo.PubSub, @topic, temperature)
   end
 
-  defp get_probe, do: Application.get_env(:domotic, Domotic.Temperature.Probe)
+  defp get_probe(), do: Application.get_env(:domotic, Domotic.Temperature.Probe)
 end

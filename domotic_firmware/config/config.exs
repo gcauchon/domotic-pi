@@ -13,12 +13,10 @@ config :nerves, source_date_epoch: "1587180600"
 
 config :domotic_firmware, target: Mix.target()
 
-config :domotic_ui, DomoticUiWeb.Endpoint,
+config :domotic, DomoticWeb.Endpoint,
   code_reloader: false,
   http: [port: 80], 
   load_from_system_env: false,
-  render_errors: [view: UiWeb.ErrorView, accepts: ~w(html json)],
-  root: Path.dirname(__DIR__),
   server: true,
   url: [host: "nerves.local", port: 80]
 

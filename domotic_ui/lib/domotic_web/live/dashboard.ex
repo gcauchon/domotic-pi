@@ -27,5 +27,5 @@ defmodule DomoticWeb.Live.Dashboard do
     {:noreply, assign(socket, status: status, temperature: temperature, threshold: threshold)}
   end
 
-  defp schedule_update, do: Process.send_after(self(), :update, 5000)
+  defp schedule_update(), do: Process.send_after(self(), :update, 5000)
 end

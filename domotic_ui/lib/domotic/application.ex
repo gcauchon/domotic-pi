@@ -1,6 +1,4 @@
 defmodule Domotic.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
   @moduledoc false
 
   use Application
@@ -9,7 +7,6 @@ defmodule Domotic.Application do
     children = [
       DomoticWeb.Telemetry,
       {Phoenix.PubSub, name: Domotic.PubSub},
-      Domotic.Temperature.Watcher,
       DomoticWeb.Endpoint
     ]
 

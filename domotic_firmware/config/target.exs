@@ -3,7 +3,6 @@ import Config
 # Use shoehorn to start the main application. See the shoehorn
 # docs for separating out critical OTP applications such as those
 # involved with firmware updates.
-
 config :shoehorn,
   init: [:nerves_runtime, :nerves_pack],
   app: Mix.Project.config()[:app]
@@ -11,13 +10,11 @@ config :shoehorn,
 # Nerves Runtime can enumerate hardware devices and send notifications via
 # SystemRegistry. This slows down startup and not many programs make use of
 # this feature.
-
 config :nerves_runtime, :kernel, use_system_registry: false
 
 # Authorize the device to receive firmware using your public key.
 # See https://hexdocs.pm/nerves_firmware_ssh/readme.html for more information
 # on configuring nerves_firmware_ssh.
-
 keys =
   [
     Path.join([System.user_home!(), ".ssh", "id_rsa.pub"]),

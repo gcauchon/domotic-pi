@@ -22,6 +22,7 @@ defmodule DomoticFirmware.MixProject do
   # Aliases are only added if MIX_TARGET is set.
   def bootstrap(args) do
     Application.start(:nerves_bootstrap)
+
     Mix.Task.run("loadconfig", args)
   end
 
