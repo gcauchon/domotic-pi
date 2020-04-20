@@ -9,8 +9,8 @@ defmodule Domotic.Application do
     children = [
       DomoticWeb.Telemetry,
       {Phoenix.PubSub, name: Domotic.PubSub},
-      DomoticWeb.Endpoint,
-      Domotic.Watcher
+      Domotic.Temperature.Watcher,
+      DomoticWeb.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

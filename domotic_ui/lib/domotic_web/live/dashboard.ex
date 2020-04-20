@@ -1,36 +1,31 @@
 defmodule DomoticWeb.Live.Dashboard do
   use Phoenix.LiveView
 
-  @temperature_threshold -15.0
- 
-  def mount(_params, _session, socket) do
-    Phoenix.PubSub.subscribe(Domotic.PubSub, "watcher")
-    %{temperature: temperature} = Domotic.Watcher.get_temperature()
+  alias Domotic.Temperature
 
-    {:ok, assign(socket, :temperature, temperature)}
+  def mount(_params, _session, socket) do
+    {status, temperature, threshold} = Temperature.get()
+    schedule_update()
+
+    {:ok, assign(socket, status: status, temperature: temperature, threshold: threshold)}
   end
 
   def render(assigns) do
     ~L"""
-    <button type="button" class="btn <%= temperature_level(@temperature) %>">
+    <button type="button" class="btn btn-<%= if @status == :ok, do: 'success', else: 'danger' %>">
       Temperature <span class="badge badge-light"><%= @temperature %>°C</span>
     </button>
 
-    <span class="dashboard__tooltip">Target: <%= temperature_threshold() %>°C</span>
+    <span class="dashboard__tooltip">Target: <%= @threshold %>°C</span>
     """
   end
 
-  def handle_info(%{timestamp: _timestamp, temperature: temperature}, socket) do
-    {:noreply, assign(socket, :temperature, temperature)}
+  def handle_info(:update, socket) do
+    {status, temperature, threshold} = Temperature.get()
+    schedule_update()
+
+    {:noreply, assign(socket, status: status, temperature: temperature, threshold: threshold)}
   end
 
-  defp temperature_threshold, do: @temperature_threshold
-
-  defp temperature_level(temperature) do
-    if temperature <= @temperature_threshold do
-      "btn-success"
-    else
-      "btn-danger"
-    end
-  end
+  defp schedule_update, do: Process.send_after(self(), :update, 5000)
 end

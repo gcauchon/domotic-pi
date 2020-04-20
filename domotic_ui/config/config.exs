@@ -8,7 +8,7 @@ config :domotic, DomoticWeb.Endpoint,
   pubsub_server: Domotic.PubSub,
   live_view: [signing_salt: "LezYvAG6"]
 
-config :domotic, Domotic.Probe, Domotic.Probe.Mock
+config :domotic, Domotic.Temperature.Probe, Domotic.Temperature.ProbeMock
 
 # Configures Elixir's Logger
 config :logger, :console,
