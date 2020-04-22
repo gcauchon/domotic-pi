@@ -2,15 +2,19 @@ use Mix.Config
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
-#
-# The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with webpack to recompile .js and .css sources.
 config :domotic, DomoticWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
+  live_reload: [
+    patterns: [
+      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/gettext/.*(po)$",
+      ~r"lib/domotic_web/(live|views)/.*(ex)$",
+      ~r"lib/domotic_web/templates/.*(eex)$"
+    ]
+  ],
   watchers: [
     node: [
       "node_modules/webpack/bin/webpack.js",
@@ -18,17 +22,6 @@ config :domotic, DomoticWeb.Endpoint,
       "development",
       "--watch-stdin",
       cd: Path.expand("../assets", __DIR__)
-    ]
-  ]
-
-# Watch static and templates for browser reloading.
-config :domotic, DomoticWeb.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/domotic_web/(live|views)/.*(ex)$",
-      ~r"lib/domotic_web/templates/.*(eex)$"
     ]
   ]
 

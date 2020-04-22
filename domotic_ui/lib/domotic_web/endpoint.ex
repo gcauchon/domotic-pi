@@ -6,8 +6,8 @@ defmodule DomoticWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_domotic_key",
-    signing_salt: "/POUtP6Q"
+    key: "_domotic_pi",
+    signing_salt: System.get_env("SESSION_SIGNING_SALT", "xaIlwtJNd2ZoGDcYgvjWw/fkec1iMVSK")
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
