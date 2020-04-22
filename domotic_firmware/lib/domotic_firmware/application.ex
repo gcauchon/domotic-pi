@@ -3,7 +3,7 @@ defmodule DomoticFirmware.Application do
 
   use Application
 
-  def start(_type, _args) do 
+  def start(_type, _args) do
     children =
       [
         # Children for all targets

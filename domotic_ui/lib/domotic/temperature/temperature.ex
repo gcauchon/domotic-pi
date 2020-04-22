@@ -13,7 +13,7 @@ defmodule Domotic.Temperature do
 
   @spec get() :: {:ok, number(), number()} | {:warning, number(), number()} | {:error, any()}
   def get() do
-    GenServer.call(:watcher, :get) 
+    GenServer.call(:watcher, :get)
   end
 
   #
@@ -24,20 +24,21 @@ defmodule Domotic.Temperature do
     schedule_update()
 
     {:ok, state}
-  end 
+  end
 
   @impl true
   def handle_info(:update, _temperature) do
-    state = case get_probe().read() do
-      {:ok, temperature} when temperature <= @threshold ->
-        {:ok, temperature, @threshold}
+    state =
+      case get_probe().read() do
+        {:ok, temperature} when temperature <= @threshold ->
+          {:ok, temperature, @threshold}
 
-      {:ok, temperature} ->
-        {:warning, temperature, @threshold}
+        {:ok, temperature} ->
+          {:warning, temperature, @threshold}
 
-      {:error, error} ->
-        {:error, error}
-    end
+        {:error, error} ->
+          {:error, error}
+      end
 
     schedule_update()
     notify(state)

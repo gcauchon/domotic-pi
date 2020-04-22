@@ -14,7 +14,7 @@ defmodule DomoticFirmware.Monitor do
   def init(_state) do
     {:ok, gpio_ok} = Circuits.GPIO.open(@gpio_ok, :output)
     {:ok, gpio_warning} = Circuits.GPIO.open(@gpio_warning, :output)
-    
+
     pins = %{ok: gpio_ok, warning: gpio_warning}
     update(pins, Temperature.get())
 
@@ -25,7 +25,7 @@ defmodule DomoticFirmware.Monitor do
 
   @impl true
   def handle_info(temperature, pins) when is_tuple(temperature) do
-    update(pins, temperature) 
+    update(pins, temperature)
 
     {:noreply, pins}
   end

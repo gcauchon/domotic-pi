@@ -18,11 +18,11 @@ config :domotic, DomoticWeb.Endpoint,
   http: [
     port: 80,
     transport_options: [socket_opts: [:inet6]]
-  ], 
+  ],
   load_from_system_env: false,
   server: true,
   url: [
-    host: "nerves.local", 
+    host: "nerves.local",
     port: 80
   ]
 

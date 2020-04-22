@@ -3,7 +3,7 @@ defmodule DomoticWeb.Router do
 
   pipeline :browser do
     plug :accepts, ["html"]
-    
+
     plug :fetch_session
     plug :fetch_live_flash
 
