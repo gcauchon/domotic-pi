@@ -3,8 +3,8 @@ defmodule DomoticFirmware.Monitor do
 
   alias Domotic.Temperature
 
-  @gpio_ok 23
-  @gpio_warning 24
+  @gpio_ok 17
+  @gpio_warning 18
 
   def start_link(_args) do
     GenServer.start_link(__MODULE__, %{}, name: :monitor)
