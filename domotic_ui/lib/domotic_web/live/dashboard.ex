@@ -7,7 +7,7 @@ defmodule DomoticWeb.Live.Dashboard do
   def mount(_params, _session, socket) do
     {status, temperature, threshold} = Temperature.get()
 
-    Temperature.subscribe()
+    if connected?(socket), do: Temperature.subscribe()
 
     {:ok, assign(socket, status: status, temperature: temperature, threshold: threshold)}
   end
