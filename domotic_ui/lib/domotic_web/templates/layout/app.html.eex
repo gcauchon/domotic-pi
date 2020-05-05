@@ -7,18 +7,17 @@
 
     <title>DomoticPi, a Nerves playground</title>
     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap">
 
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/> 
 
     <%= csrf_meta_tag() %>
   </head>
-  <body>
-    <header class="header">
-      <div class="container ">
-        <h1 class="header__title">
-          <svg class="header__logo" viewBox="0 0 13 25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <body class="box-border text-gray-800">
+    <header class="pt-2 pb-4 text-5xl font-bold">
+      <div class="container mx-auto">
+        <h1 class="flex .items-center ">
+          <svg class="h-16 pr-2 fill-current" viewBox="0 0 13 25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <path d="M10,3 C10,2.44775 10.4478,2 11,2 L12,2 C12.5522,2 13,2.44775 13,3 C13,3.55225 12.5522,4 12,4 L11,4 C10.4478,4 10,3.55225 10,3 Z"></path>
             <path d="M11,6 C10.4478,6 10,6.44775 10,7 C10,7.55225 10.4478,8 11,8 L12,8 C12.5522,8 13,7.55225 13,7 C13,6.44775 12.5522,6 12,6 L11,6 Z"></path>
             <path d="M10,10 C10,9.4478 10.4478,9 11,9 L12,9 C12.5522,9 13,9.4478 13,10 C13,10.5522 12.5522,11 12,11 L11,11 C10.4478,11 10,10.5522 10,10 Z"></path>
@@ -31,13 +30,17 @@
       </section>
     </header>
 
-    <main role="main" class="container">
+    <main class="container mx-auto">
       <%= @inner_content %>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        Termometer icon by <em>Marko Fuček</em> from the <a href="https://thenounproject.com/search/?q=termometer&i=1851122">Noun Project</a>
+    <footer class="pt-4 pb-2">
+      <div class="container mx-auto">
+        <p class="text-sm text-gray-500">
+          Termometer icon by <em>Marko Fuček</em> from the 
+
+          <a class="link" href="https://thenounproject.com/search/?q=termometer&i=1851122">Noun Project</a>
+        </p>
       </div>
     </footer>
 

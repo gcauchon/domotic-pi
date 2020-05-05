@@ -15,11 +15,11 @@ defmodule DomoticWeb.Live.Dashboard do
   @impl true
   def render(assigns) do
     ~L"""
-    <button type="button" class="btn btn-<%= if @status == :ok, do: 'success', else: 'danger' %>">
+    <button class="button button--<%= if @status == :ok, do: 'ok', else: 'warning' %>">
       Temperature <span class="badge badge-light"><%= @temperature %>°C</span>
     </button>
 
-    <span class="dashboard__tooltip">Target: <%= @threshold %>°C</span>
+    <span class="ml-6 text-sm">Target: <%= @threshold %>°C</span>
     """
   end
 

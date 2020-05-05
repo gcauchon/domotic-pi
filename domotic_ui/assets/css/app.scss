@@ -1,0 +1,29 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+
+.button {
+  @apply bg-gray-500 font-bold py-2 px-4 rounded shadow transition ease-linear duration-300;
+}
+
+.button--ok {
+  @apply bg-green-500 text-white;
+}
+
+.button--warning {
+  @apply bg-red-500 text-white;
+}
+
+.link {
+  @apply text-blue-500 transition ease-in-out duration-500;
+
+  &:hover {
+      @apply text-blue-700 underline;
+  }
+}
+
+
+@import "../node_modules/nprogress/nprogress.css";
