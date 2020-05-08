@@ -12,7 +12,7 @@ config :nerves, source_date_epoch: "1587180600"
 
 # Override Buildroot Linux’s default configuration to enable 1-Wire
 # ⮑ http://www.carstenblock.org/post/project-excelsius/
-config :nerves, :firmware, fwup_conf: "config/rpi/fwup.conf"
+config :nerves, :firmware, fwup_conf: "config/rpi0/fwup.conf"
 
 config :domotic_firmware, target: Mix.target()
 
