@@ -16,6 +16,8 @@ config :nerves, :firmware, fwup_conf: "config/rpi0/fwup.conf"
 
 config :domotic_firmware, target: Mix.target()
 
+config :domotic, Domotic.Temperature.Probe, DomoticFirmware.Temperature.Probe.DS18B20
+
 config :domotic, DomoticWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
   code_reloader: false,

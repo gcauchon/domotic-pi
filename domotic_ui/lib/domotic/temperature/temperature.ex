@@ -2,7 +2,7 @@ defmodule Domotic.Temperature do
   use GenServer
 
   @topic inspect(__MODULE__)
-  @threshold -15.0
+  @threshold -14.0
 
   #
   # Client
@@ -52,7 +52,7 @@ defmodule Domotic.Temperature do
   end
 
   defp schedule_update() do
-    Process.send_after(self(), :update, 5000)
+    Process.send_after(self(), :update, 5 * 1000)
   end
 
   def subscribe do
