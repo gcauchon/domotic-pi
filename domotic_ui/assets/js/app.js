@@ -1,4 +1,4 @@
-import "../css/app.scss"
+import "../css/app.css"
 
 import {Socket} from "phoenix"
 import "phoenix_html"

@@ -28,7 +28,7 @@ config :domotic, DomoticWeb.Endpoint,
   load_from_system_env: false,
   server: true,
   url: [
-    host: "nerves.local",
+    host: "nerves-dev.local",
     port: 80
   ]
 

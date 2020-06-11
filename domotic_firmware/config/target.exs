@@ -40,23 +40,22 @@ config :vintage_net,
   regulatory_domain: "CA",
   config: [
     {"usb0", %{type: VintageNetDirect}},
-    {"eth0",
-     %{
-       type: VintageNetEthernet,
-       ipv4: %{method: :dhcp}
-     }},
+    {"eth0", %{
+      type: VintageNetEthernet,
+      ipv4: %{method: :dhcp}
+    }},
     {"wlan0", %{
       type: VintageNetWiFi,
       vintage_net_wifi: %{
         networks: [
           %{
             key_mgmt: :wpa_psk,
-            ssid: "1111",
-            psk: "life 1s good!",
+            ssid: System.fetch_env!("WIFI_SSID"),
+            psk: System.fetch_env!("WIFI_PASSWORD")
           }
         ]
       },
-      ipv4: %{method: :dhcp},
+      ipv4: %{method: :dhcp}
     }}
   ]
 
