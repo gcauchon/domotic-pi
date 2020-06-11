@@ -14,7 +14,7 @@ to monitor the freezer temperature never to waste precious wild meat.
 ## Electronics
 
 <p align="center">
-  <img width="400" alt="ritzing" src="https://user-images.githubusercontent.com/801045/84334439-618c0d80-ab60-11ea-9483-4585d3b0da12.png">
+  <img width="400" alt="ritzing" src="https://user-images.githubusercontent.com/801045/84335746-8c2b9580-ab63-11ea-8514-b9280927bae4.png">
 </p>
 
 http://fritzing.org/projects/freezer-watch
