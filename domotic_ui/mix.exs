@@ -4,7 +4,7 @@ defmodule Domotic.MixProject do
   def project do
     [
       app: :domotic,
-      version: "0.1.2",
+      version: "0.2.0",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -40,7 +40,7 @@ defmodule Domotic.MixProject do
       #Phoenix
       {:phoenix, "~> 1.5"},
       {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_view, "~> 0.13"},
+      {:phoenix_live_view, "~> 0.14"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_dashboard, "~> 0.2"},
 
@@ -49,13 +49,14 @@ defmodule Domotic.MixProject do
       
       # AWS
       {:ex_aws, "~> 2.1"},
+      {:ex_aws_dynamo, "~> 4.0"},
       
       # Gettext
       {:gettext, "~> 0.11"},
 
       # Telemetry
       {:telemetry_metrics, "~> 0.5"},
-      {:telemetry_poller, "~> 0.4"}
+      {:telemetry_poller, "~> 0.5"}
     ]
   end
 end
