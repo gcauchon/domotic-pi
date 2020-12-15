@@ -4,8 +4,8 @@ defmodule Domotic.MixProject do
   def project do
     [
       app: :domotic,
-      version: "0.1.2",
-      elixir: "~> 1.10",
+      version: "0.2.0",
+      elixir: "~> 1.11",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -35,14 +35,14 @@ defmodule Domotic.MixProject do
   defp deps do
     [
       # Plug
-      {:plug_cowboy, "~> 2.1"},
+      {:plug_cowboy, "~> 2.4"},
 
       #Phoenix
       {:phoenix, "~> 1.5"},
-      {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_view, "~> 0.13"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_dashboard, "~> 0.2"},
+      {:phoenix_html, "~> 2.14"},
+      {:phoenix_live_view, "~> 0.15"},
+      {:phoenix_live_reload, "~> 1.3", only: :dev},
+      {:phoenix_live_dashboard, "~> 0.4"},
 
       # JSON
       {:jason, "~> 1.2"},
@@ -51,11 +51,11 @@ defmodule Domotic.MixProject do
       {:ex_aws, "~> 2.1"},
       
       # Gettext
-      {:gettext, "~> 0.11"},
+      {:gettext, "~> 0.18"},
 
       # Telemetry
-      {:telemetry_metrics, "~> 0.5"},
-      {:telemetry_poller, "~> 0.4"}
+      {:telemetry_metrics, "~> 0.6"},
+      {:telemetry_poller, "~> 0.5"}
     ]
   end
 end
