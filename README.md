@@ -8,8 +8,8 @@ https://www.nerves-project.org/) platform!
 </p>
 
 A <em>RaspberryPi Zero Wireless</em> device using a [DS18D20 temperature sensor](
-https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf), LEDs and a Phoenix live view
-to monitor the freezer temperature never to waste precious wild meat.
+https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf), LEDs, `Phoenix.LiveView` 
+and OTP features to monitor my freezer temperature never to waste precious venison.
 
 ## Electronics
 
