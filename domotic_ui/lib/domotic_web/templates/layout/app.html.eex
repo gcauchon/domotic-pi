@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <title>DomoticPi, a Nerves playground</title>
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700&display=swap">
 
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/> 
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/assets/app.css") %>"/>
 
     <%= csrf_meta_tag() %>
   </head>
@@ -37,13 +37,13 @@
     <footer class="pt-4 pb-2">
       <div class="container mx-auto">
         <p class="text-sm text-gray-500">
-          Termometer icon by <em>Marko Fuček</em> from the 
+          Termometer icon by <em>Marko Fuček</em> from the
 
           <a class="link" href="https://thenounproject.com/search/?q=termometer&i=1851122">Noun Project</a>
         </p>
       </div>
     </footer>
 
-    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/assets/app.js") %>"></script>
   </body>
 </html>

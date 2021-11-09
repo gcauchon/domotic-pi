@@ -14,8 +14,8 @@ defmodule DomoticWeb.Live.Dashboard do
 
   @impl true
   def render(assigns) do
-    ~L"""
-    <button class="button button--<%= if @status == :ok, do: 'ok', else: 'warning' %>">
+    ~H"""
+    <button class={if @status == :ok, do: "button button--ok", else: "button button--warning"}>
       Temperature <span class="badge badge-light"><%= @temperature %>°C</span>
     </button>
 

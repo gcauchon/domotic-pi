@@ -1,37 +1,17 @@
 {
-  "repository": {},
-  "description": " ",
-  "license": "MIT",
-  "private": true,
-  "engine-strict": true,
-  "engines": {
-    "node": "^14.15",
-    "npm": "^6.14"
-  },
   "scripts": {
-    "deploy": "NODE_ENV=production webpack --mode production",
-    "watch": "webpack --mode development --colors --watch"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.10",
-    "autoprefixer": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^5.1.2",
-    "mini-css-extract-plugin": "^0.12.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.4.2",
-    "postcss": "^8.2.0",
-    "postcss-loader": "^4.1.0",
-    "terser-webpack-plugin": "^2.3.8",
-    "webpack": "4.44.2",
-    "webpack-cli": "^3.3.12"
+    "deploy": "NODE_ENV=production tailwindcss --postcss --minify --input=css/app.css --output=../priv/static/assets/app.css",
+    "watch": "tailwindcss  --postcss --watch --input=css/app.css --output=../priv/static/assets/app.css"
   },
   "dependencies": {
-    "nprogress": "^0.2.0",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view",
-    "tailwindcss": "^2.0.2"
+    "topbar": "^1.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
   }
 }

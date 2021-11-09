@@ -3,7 +3,6 @@ use Mix.Config
 # For development, we disable any cache and enable
 # debugging and code reloading.
 config :domotic, DomoticWeb.Endpoint,
-  http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -16,11 +15,7 @@ config :domotic, DomoticWeb.Endpoint,
     ]
   ],
   watchers: [
-    npm: [
-      "run",
-      "watch",
-      cd: Path.expand("../assets", __DIR__)
-    ]
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
 # Set a higher stacktrace during development.
