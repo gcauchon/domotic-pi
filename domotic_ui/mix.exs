@@ -4,8 +4,8 @@ defmodule Domotic.MixProject do
   def project do
     [
       app: :domotic,
-      version: "0.3.0",
-      elixir: "~> 1.12",
+      version: "0.4.0",
+      elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -47,11 +47,10 @@ defmodule Domotic.MixProject do
       {:phoenix_live_view, "~> 0.17"},
       {:phoenix_live_reload, "~> 1.3", only: :dev},
       {:phoenix_live_dashboard, "~> 0.6"},
-
-      # JSON
       {:jason, "~> 1.2"},
 
       # AWS
+      {:hackney, "~> 1.18"},
       {:ex_aws, "~> 2.3"},
 
       # Gettext
