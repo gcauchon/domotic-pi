@@ -40,10 +40,6 @@ config :vintage_net,
   regulatory_domain: "CA",
   config: [
     {"usb0", %{type: VintageNetDirect}},
-    {"eth0", %{
-      type: VintageNetEthernet,
-      ipv4: %{method: :dhcp}
-    }},
     {"wlan0", %{
       type: VintageNetWiFi,
       vintage_net_wifi: %{
