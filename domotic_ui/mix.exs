@@ -29,8 +29,8 @@ defmodule Domotic.MixProject do
   defp aliases do
     [
       "assets.deploy": [
-        "cmd npm run deploy --prefix assets",
         "esbuild default --minify",
+        "tailwind default --minify",
         "phx.digest"
       ]
     ]
@@ -52,17 +52,18 @@ defmodule Domotic.MixProject do
       {:jason, "~> 1.2"},
 
       # AWS
-      {:ex_aws, "~> 2.2"},
+      {:ex_aws, "~> 2.3"},
 
       # Gettext
-      {:gettext, "~> 0.18"},
+      {:gettext, "~> 0.19"},
 
       # Telemetry
       {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 0.5"},
+      {:telemetry_poller, "~> 1.0"},
 
-      # ESbuild
-      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev}
+      # Assets pipeline
+      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end
 end
