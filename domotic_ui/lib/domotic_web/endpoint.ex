@@ -1,16 +1,12 @@
 defmodule DomoticWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :domotic
 
-  # The session will be stored in the cookie and signed,
-  # this means its contents can be read but not tampered with.
-  # Set :encryption_salt if you would also like to encrypt it.
-  @session_options [
-    store: :cookie,
-    key: "_domotic_pi",
-    signing_salt: System.get_env("SESSION_SIGNING_SALT", "xaIlwtJNd2ZoGDcYgvjWw/fkec1iMVSK")
-  ]
-
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  socket "/live", Phoenix.LiveView.Socket,
+    websocket: [
+      connect_info: [
+        session: {DomoticWeb.Session, :get_options, []}
+      ]
+    ]
 
   # Serve at "/" the static files from "priv/static" directory.
   plug Plug.Static,
@@ -40,7 +36,16 @@ defmodule DomoticWeb.Endpoint do
 
   plug Plug.MethodOverride
   plug Plug.Head
-  plug Plug.Session, @session_options
+  plug(:session)
 
   plug DomoticWeb.Router
+
+  # The session will be stored in the cookie and signed,
+  # this means its contents can be read but not tampered with.
+  # Set :encryption_salt if you would also like to encrypt it.
+  defp session(conn, _opts) do
+    opts = Plug.Session.init(DomoticWeb.Session.get_options())
+
+    Plug.Session.call(conn, opts)
+  end
 end

@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # We don't run a server during test.
 config :domotic, DomoticWeb.Endpoint,

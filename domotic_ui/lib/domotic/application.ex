@@ -5,8 +5,8 @@ defmodule Domotic.Application do
 
   def start(_type, _args) do
     children = [
-      DomoticWeb.Telemetry,
       {Phoenix.PubSub, name: Domotic.PubSub},
+      Domotic.Telemetry,
       Domotic.Temperature,
       DomoticWeb.Endpoint
     ]

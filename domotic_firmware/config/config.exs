@@ -10,7 +10,7 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # ⮑ https://reproducible-builds.org/docs/source-date-epoch
 config :nerves, source_date_epoch: "1587180600"
 
-# Override Buildroot Linux’s default configuration to enable 1-Wire
+# Override Buildroot Linux’s default configuration to enable OneWire
 # ⮑ http://www.carstenblock.org/post/project-excelsius/
 config :nerves, :firmware, fwup_conf: "config/rpi0/fwup.conf"
 

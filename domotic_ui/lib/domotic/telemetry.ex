@@ -1,4 +1,4 @@
-defmodule DomoticWeb.Telemetry do
+defmodule Domotic.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
