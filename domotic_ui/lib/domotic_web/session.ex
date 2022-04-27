@@ -4,8 +4,7 @@ defmodule DomoticWeb.Session do
     [
       store: :cookie,
       key: "domotic-pi",
-      signing_salt: Application.get_env(:domotic, DomoticWeb.Endpoint)[:signing_salt],
-      secure: true
+      signing_salt: Application.get_env(:domotic, DomoticWeb.Endpoint)[:signing_salt]
     ]
   end
 end

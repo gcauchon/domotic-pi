@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./js/**/*.js', '../lib/*_web.ex', '../lib/*_web/**/*.*ex'],
+  content: ['./js/**/*.js', '../lib/*_web.ex', '../lib/*_web/**/*.{ex,eex,heex}'],
   theme: {
     container: {
       padding: {
