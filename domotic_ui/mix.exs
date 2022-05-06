@@ -41,7 +41,7 @@ defmodule Domotic.MixProject do
       # Plug
       {:plug_cowboy, "~> 2.5"},
 
-      #Phoenix
+      # Phoenix
       {:phoenix, "~> 1.6"},
       {:phoenix_html, "~> 3.1"},
       {:phoenix_live_view, "~> 0.17"},
@@ -61,8 +61,8 @@ defmodule Domotic.MixProject do
       {:telemetry_poller, "~> 1.0"},
 
       # Assets pipeline
-      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev && Mix.target() == :host},
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev && Mix.target() == :host}
     ]
   end
 end

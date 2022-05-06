@@ -2,8 +2,8 @@ import {Socket} from "phoenix";
 import {LiveSocket} from "phoenix_live_view";
 import TopBar from "topbar";
 
-let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}});
+const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+const liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}});
 
 // connect if there are any LiveViews on the page
 liveSocket.connect()

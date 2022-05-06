@@ -40,19 +40,24 @@ config :vintage_net,
   regulatory_domain: "CA",
   config: [
     {"usb0", %{type: VintageNetDirect}},
-    {"wlan0", %{
-      type: VintageNetWiFi,
-      vintage_net_wifi: %{
-        networks: [
-          %{
-            key_mgmt: :wpa_psk,
-            ssid: System.fetch_env!("WIFI_SSID"),
-            psk: System.fetch_env!("WIFI_PASSWORD")
-          }
-        ]
-      },
-      ipv4: %{method: :dhcp}
-    }}
+    {"eth0",
+     %{
+       type: VintageNetEthernet,
+       ipv4: %{method: :dhcp}
+     }},
+    {"wlan0",
+     %{
+       type: VintageNetWiFi,
+       vintage_net_wifi: %{
+         networks: [
+           %{
+             key_mgmt: :wpa_psk,
+             ssid: System.fetch_env!("WIFI_SSID"),
+             psk: System.fetch_env!("WIFI_PASSWORD")
+           }
+         ]
+       }
+     }}
   ]
 
 config :mdns_lite,
@@ -86,6 +91,25 @@ config :mdns_lite,
       port: 4369
     }
   ]
+
+config :phoenix, :json_library, Jason
+
+config :domotic, DomoticWeb.Endpoint,
+  server: true,
+  http: [port: 80],
+  url: [host: "nerves.local"],
+  pubsub_server: Domotic.PubSub,
+  render_errors: [view: DomoticWeb.ErrorView, accepts: ~w(html json), layout: false],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  code_reloader: false,
+  secret_key_base: System.fetch_env!("SECRET_KEY_BASE"),
+  signing_salt: System.fetch_env!("SIGNING_SALT"),
+  live_view: [
+    signing_salt: System.fetch_env!("SIGNING_SALT")
+  ]
+
+# config :domotic, Domotic.Temperature.Probe, Domotic.Temperature.ProbeMock
+config :domotic, Domotic.Temperature.Probe, DomoticFirmware.Temperature.Probe.DS18B20
 
 # Import target specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
