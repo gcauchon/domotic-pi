@@ -49,6 +49,9 @@ defmodule Domotic.MixProject do
       {:phoenix_live_dashboard, "~> 0.6"},
       {:jason, "~> 1.2"},
 
+      # Graphs
+      {:contex, "~> 0.4.0"},
+
       # AWS
       {:hackney, "~> 1.18"},
       {:ex_aws, "~> 2.3"},
